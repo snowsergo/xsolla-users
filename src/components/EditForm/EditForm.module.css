@@ -1,0 +1,48 @@
+.EditForm {
+  position: fixed;
+  margin: 0;
+  padding: 10px;
+  background: rgb(250, 196, 196);
+  border: 1px solid black;
+  border-radius: 5px;
+  z-index: 90;
+}
+
+.EditForm form {
+  display: flex;
+  flex-direction: column;
+}
+
+.EditForm input {
+  margin-bottom: 1px;
+}
+
+.EditForm button {
+  margin: 10px 140px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.EditForm > button {
+  margin-top: 40px;
+}
+
+.EditForm span {
+  position: absolute;
+  bottom: -14px;
+  right: 0;
+  font-size: 12px;
+  color: red;
+}
+
+.EditForm button:disabled {
+  background: #ccc;
+  color: #000;
+  cursor: not-allowed;
+}
+
+.section {
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
