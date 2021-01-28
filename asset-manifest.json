@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/xsolla-users/static/css/main.900fd5ca.chunk.css",
+    "main.js": "/xsolla-users/static/js/main.6102adcb.chunk.js",
+    "main.js.map": "/xsolla-users/static/js/main.6102adcb.chunk.js.map",
+    "runtime-main.js": "/xsolla-users/static/js/runtime-main.43ac9244.js",
+    "runtime-main.js.map": "/xsolla-users/static/js/runtime-main.43ac9244.js.map",
+    "static/js/2.24059c23.chunk.js": "/xsolla-users/static/js/2.24059c23.chunk.js",
+    "static/js/2.24059c23.chunk.js.map": "/xsolla-users/static/js/2.24059c23.chunk.js.map",
+    "static/js/3.c0b2276b.chunk.js": "/xsolla-users/static/js/3.c0b2276b.chunk.js",
+    "static/js/3.c0b2276b.chunk.js.map": "/xsolla-users/static/js/3.c0b2276b.chunk.js.map",
+    "index.html": "/xsolla-users/index.html",
+    "static/css/main.900fd5ca.chunk.css.map": "/xsolla-users/static/css/main.900fd5ca.chunk.css.map",
+    "static/js/2.24059c23.chunk.js.LICENSE.txt": "/xsolla-users/static/js/2.24059c23.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.43ac9244.js",
+    "static/js/2.24059c23.chunk.js",
+    "static/css/main.900fd5ca.chunk.css",
+    "static/js/main.6102adcb.chunk.js"
+  ]
+}
