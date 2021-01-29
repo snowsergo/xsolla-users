@@ -1,3 +1,29 @@
-.UsersHead{
-    
+.UsersHead {
+  background: linear-gradient(#af38ff, #1500ff);
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: bold;
+  
+}
+
+.UsersHead p {
+  padding: 0;
+}
+.icons {
+  display: flex;
+}
+
+.sort {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.sort i:active{
+color:darkgray;
 }

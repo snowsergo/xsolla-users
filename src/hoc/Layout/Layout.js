@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './Layout.module.css';
-import Button from '../../components/UI/Button/Button'
+
 class Layout extends Component {
 
  

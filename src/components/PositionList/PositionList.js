@@ -19,12 +19,13 @@ const PositionList = (props) => {
       {props.positions.map((position) => {
         return (
           <label key={position}>
-            <input type='checkbox' id={position}/>
+            <input type='checkbox' id={position} />
             {position}
           </label>
         );
       })}
-      <button type="button"
+      <button
+        type='button'
         onClick={() => {
           props.onFilter(filter());
         }}

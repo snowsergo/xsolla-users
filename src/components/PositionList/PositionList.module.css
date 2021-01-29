@@ -1,16 +1,30 @@
 .PositionList{
     position:fixed;
     width:200px;
+    margin:auto;
+    align-self: center;
     z-index: 90;
     display:flex;
     flex-direction: column;
     border:1px solid black;
     border-radius: 10px;
     box-sizing: border-box;
-    background:rgb(248, 195, 255);
+    background: #fff;
+    padding:10px;
+}
+
+
+.PositionList button{
+margin-top:5px;
+align-self: center;
+width:100px;
+background: linear-gradient(#af38ff, #1500ff);
+color:#fff;
+cursor: pointer;
+font-weight: bold;
 }
 
 .PositionList label{
-    
+    cursor: pointer;
 
 }

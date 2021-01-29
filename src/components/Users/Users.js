@@ -4,75 +4,26 @@ import UsersHead from './UsersHead/UsersHead';
 import PositionList from '../PositionList/PositionList';
 import AddForm from '../AddForm/AddForm';
 import EditForm from '../EditForm/EditForm';
+import Backdrop from '../UI/Backdrop/Backdrop';
 import classes from './Users.module.css';
-
-const users = [
-  {
-    name: 'Антон',
-    id: '1',
-    age: 20,
-    gender: 'муж',
-    position: 'Инженер',
-  },
-  {
-    name: 'Антон',
-    id: '10',
-    age: 34,
-    gender: 'муж',
-    position: 'Инженер',
-  },
-  {
-    name: 'Коля',
-    id: '2',
-    age: 23,
-    gender: 'муж',
-    position: 'Директор',
-  },
-  {
-    name: 'Юля',
-    id: '3',
-    age: 25,
-    gender: 'жен',
-    position: 'Бухгалтер',
-  },
-  {
-    name: 'Джон',
-    id: '4',
-    age: 31,
-    gender: 'муж',
-    position: 'Охранник',
-  },
-  {
-    name: 'Владимир',
-    id: '5',
-    age: 17,
-    gender: 'муж',
-    position: 'Студент',
-  },
-  {
-    name: 'Джессика',
-    id: '6',
-    age: 40,
-    gender: 'жен',
-    position: 'Вахтер',
-  },
-];
+import users from '../../constants/defaultUsers';
 
 export default class Users extends Component {
   state = {
-    users: sessionStorage.getItem('users') ? JSON.parse(sessionStorage.getItem('users')) : users,
+    users: sessionStorage.getItem('users')
+      ? JSON.parse(sessionStorage.getItem('users'))
+      : users,
     filterArr: [],
     uniquePositions: [],
     isFilterOpen: false,
     addUserisOpen: false,
     editUserisOpen: false,
-    // deleteUserisOpen: false,
     editUser: '',
   };
 
-saveToStorage(arr){
-  sessionStorage.setItem('users', JSON.stringify(arr));
-}
+  saveToStorage(arr) {
+    sessionStorage.setItem('users', JSON.stringify(arr));
+  }
 
   sort = (key, direction) => {
     const users = this.state.users;
@@ -180,9 +131,17 @@ saveToStorage(arr){
     return newArr;
   };
 
+  backdropHandler = () => {
+    this.setState({
+      isFilterOpen: false,
+      addUserisOpen: false,
+      editUserisOpen: false,
+    });
+  };
+
   render() {
     return (
-      <div>
+      <div className={classes.Users}>
         {this.state.isFilterOpen ? (
           <PositionList
             positions={this.state.uniquePositions}
@@ -202,27 +161,34 @@ saveToStorage(arr){
           />
         ) : null}
 
-        <button onClick={() => this.handleAddForm()}>добавить</button>
+        {this.state.isFilterOpen ||
+        this.state.addUserisOpen ||
+        this.state.editUserisOpen ? (
+          <Backdrop onClick={this.backdropHandler}></Backdrop>
+        ) : null}
 
-        <table border='1'>
-          <caption>Список всех пользователей</caption>
-          <UsersHead onSort={this.sort} onFilter={() => this.toggleFilter()} />
+        {/* <table border='1'> */}
+        <h1 className={classes.title}>Список всех пользователей</h1>
+        <button className={classes.button} onClick={() => this.handleAddForm()}>
+          Добавть пользователя
+        </button>
+        <UsersHead onSort={this.sort} onFilter={() => this.toggleFilter()} />
 
-          {this.filterHandler(this.state.users, this.state.filterArr).map(
-            (user, index) => {
-              return (
-                <UserLine
-                  key={index}
-                  user={user}
-                  onDelete={() => {
-                    this.deleteUser(user.id);
-                  }}
-                  onEdit={() => this.handleEditForm(user.id)}
-                />
-              );
-            }
-          )}
-        </table>
+        {this.filterHandler(this.state.users, this.state.filterArr).map(
+          (user, index) => {
+            return (
+              <UserLine
+                key={index}
+                user={user}
+                onDelete={() => {
+                  this.deleteUser(user.id);
+                }}
+                onEdit={() => this.handleEditForm(user.id)}
+              />
+            );
+          }
+        )}
+        {/* </table> */}
       </div>
     );
   }

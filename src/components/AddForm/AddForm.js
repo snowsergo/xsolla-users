@@ -78,29 +78,30 @@ function AddForm(props) {
       <form id='add-form'>
         <h1>Создание нового пользователя</h1>
         <div className={classes.section}>
-          Имя
+          <p>Имя</p>
           <input id='add-name' onChange={validation} />
           {nameIsValid ? '' : <span>Введите корректное значение</span>}
         </div>
         <div className={classes.section}>
-          Возраст
+          <p>Возраст</p>
           <input id='add-age' onChange={validation} />
           {ageIsValid ? '' : <span>Введите корректное значение</span>}
         </div>
         <div className={classes.section}>
-          Пол
+          <p>Пол</p>
           <select id='add-gender'>
             <option>муж</option>
             <option>жен</option>
           </select>
         </div>
         <div className={classes.section}>
-          Должность
+          <p>Должность</p>
           <input id='add-position' onChange={validation} />
           {positionIsValid ? '' : <span>Введите корректное значение</span>}
         </div>
 
         <button
+          className={classes.createButton}
           type='button'
           disabled={!formIsValid}
           onClick={() => {
@@ -110,7 +111,11 @@ function AddForm(props) {
         >
           Создать
         </button>
-        <button type='button' onClick={() => props.onClose()}>
+        <button
+          className={classes.cancelButton}
+          type='button'
+          onClick={() => props.onClose()}
+        >
           Отменить
         </button>
       </form>

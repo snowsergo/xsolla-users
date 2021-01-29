@@ -1,3 +1,26 @@
 .UserLine{
-    
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid rgb(219, 179, 252);
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.edit{
+    color:rgb(0, 165, 0);
+    cursor: pointer;
+}
+
+.edit:active{
+    color:rgb(0, 100, 0)
+}
+
+.delete{
+    margin-left:20px;
+    color:red;
+    cursor: pointer;
+}
+
+.delete:active{
+    color:rgb(143, 0, 0);
 }

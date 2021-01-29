@@ -80,7 +80,7 @@ function EditForm(props) {
       <form id='edit-form'>
         <h1>Редактирование пользователя</h1>
         <div className={classes.section}>
-          Имя
+          <p>Имя</p>
           <input
             id='edit-name'
             defaultValue={props.editUser.name}
@@ -89,7 +89,7 @@ function EditForm(props) {
           {nameIsValid ? '' : <span>Введите корректное значение</span>}
         </div>
         <div className={classes.section}>
-          Возраст
+          <p>Возраст</p>
           <input
             id='edit-age'
             defaultValue={props.editUser.age}
@@ -98,7 +98,7 @@ function EditForm(props) {
           {ageIsValid ? '' : <span>Введите корректное значение</span>}
         </div>
         <div className={classes.section}>
-          Пол
+          <p>Пол</p>
           <select id='edit-gender'>
             <option>{props.editUser.gender}</option>
             <option>{props.editUser.gender === 'муж' ? 'жен' : 'муж'}</option>
@@ -106,7 +106,7 @@ function EditForm(props) {
         </div>
 
         <div className={classes.section}>
-          Должность
+          <p>Должность</p>
           <input
             id='edit-position'
             defaultValue={props.editUser.position}
@@ -116,6 +116,7 @@ function EditForm(props) {
         </div>
 
         <button
+          className={classes.createButton}
           type='button'
           disabled={!formIsValid}
           onClick={() => {
@@ -125,7 +126,11 @@ function EditForm(props) {
         >
           Сохранить
         </button>
-        <button type='button' onClick={() => props.onClose()}>
+        <button
+          className={classes.cancelButton}
+          type='button'
+          onClick={() => props.onClose()}
+        >
           Отменить
         </button>
       </form>
