@@ -20,7 +20,7 @@
 
 [https://snowsergo.github.io/xsolla-users/](https://snowsergo.github.io/xsolla-users/)
 
-# Установа проекта:
+# Установка проекта:
 
 скачайте репозиторий
 
@@ -34,7 +34,7 @@ git clone https://github.com/snowsergo/xsolla-users.git
  npm i
 ```
 
-запуска приложения в dev режиме
+запуск приложения в dev режиме
 
 ```
  npm run start
