@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import UserLine from './UserLine/UserLine';
 import UsersHead from './UsersHead/UsersHead';
 import PositionList from '../PositionList/PositionList';
-import AddForm from '../AddForm/AddForm';
-import EditForm from '../EditForm/EditForm';
 import Backdrop from '../UI/Backdrop/Backdrop';
 import classes from './Users.module.css';
 import users from '../../constants/defaultUsers';
+import Form from '../Form/Form';
 
 export default class Users extends Component {
   state = {
@@ -82,6 +81,7 @@ export default class Users extends Component {
   };
 
   handleEditForm = (id) => {
+    const users = this.state.users;
     const elem = users.find((item) => item.id === id);
     const formState = this.state.editUserisOpen;
     this.setState({
@@ -150,14 +150,19 @@ export default class Users extends Component {
         ) : null}
 
         {this.state.addUserisOpen ? (
-          <AddForm onClick={this.createUser} onClose={this.handleAddForm} />
+          <Form
+            onClick={this.createUser}
+            onClose={this.handleAddForm}
+            title='Создание пользователя'
+          />
         ) : null}
 
         {this.state.editUserisOpen ? (
-          <EditForm
+          <Form
             onClose={this.handleEditForm}
             editUser={this.state.editUser}
-            onSave={this.editUser}
+            onClick={this.editUser}
+            title='Редактирование пользователя'
           />
         ) : null}
 
@@ -167,7 +172,6 @@ export default class Users extends Component {
           <Backdrop onClick={this.backdropHandler}></Backdrop>
         ) : null}
 
-        {/* <table border='1'> */}
         <h1 className={classes.title}>Список всех пользователей</h1>
         <button className={classes.button} onClick={() => this.handleAddForm()}>
           Добавть пользователя
@@ -188,7 +192,6 @@ export default class Users extends Component {
             );
           }
         )}
-        {/* </table> */}
       </div>
     );
   }

@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
-import classes from './EditForm.module.css';
+import classes from './Form.module.css';
 
-function EditForm(props) {
+function Form(props) {
   const [nameIsValid, setValidName] = useState(true);
   const [ageIsValid, setValidAge] = useState(true);
   const [positionIsValid, setValidPosition] = useState(true);
   const [formIsValid, setValidForm] = useState(false);
 
+  const defaultUser = {
+    name: props.editUser ? props.editUser.name : '',
+    age: props.editUser ? props.editUser.age : '',
+    gender: props.editUser ? props.editUser.gender : 'муж',
+    secondGender: props.editUser? (props.editUser.gender==='муж'? 'жен': 'муж') : 'жен',
+    position: props.editUser ? props.editUser.position : '',
+  };
+
   function checkForm() {
-    const nameInput = document.getElementById('edit-name');
-    const ageInput = document.getElementById('edit-age');
-    const positionInput = document.getElementById('edit-position');
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    const positionInput = document.getElementById('position');
     if (
       checkName(nameInput.value) &&
       checkAge(ageInput.value) &&
@@ -37,17 +45,17 @@ function EditForm(props) {
 
   function validation(event) {
     switch (event.target.id) {
-      case 'edit-name':
+      case 'name':
         if (checkName(event.target.value)) {
           setValidName(true);
         } else setValidName(false);
         break;
-      case 'edit-age':
+      case 'age':
         if (checkAge(event.target.value)) {
           setValidAge(true);
         } else setValidAge(false);
         break;
-      case 'edit-position':
+      case 'position':
         if (checkPosition(event.target.value)) {
           setValidPosition(true);
         } else setValidPosition(false);
@@ -59,58 +67,55 @@ function EditForm(props) {
   }
 
   function getUser() {
-    const nameInput = document.getElementById('edit-name');
-    const ageInput = document.getElementById('edit-age');
-    const genderInput = document.getElementById('edit-gender');
-    const positionInput = document.getElementById('edit-position');
-
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    const genderInput = document.getElementById('gender');
+    const positionInput = document.getElementById('position');
     const user = {
       name: nameInput.value,
       age: ageInput.value,
       gender: genderInput.value,
       position: positionInput.value,
-      id: props.editUser.id,
     };
 
     return user;
   }
 
   return (
-    <div className={classes.EditForm}>
-      <form id='edit-form'>
-        <h1>Редактирование пользователя</h1>
+    <div className={classes.Form}>
+      <form id='form'>
+        <h1>{props.title}</h1>
         <div className={classes.section}>
           <p>Имя</p>
           <input
-            id='edit-name'
-            defaultValue={props.editUser.name}
+            id='name'
             onChange={validation}
+            defaultValue={defaultUser.name}
           />
           {nameIsValid ? '' : <span>Введите корректное значение</span>}
         </div>
         <div className={classes.section}>
           <p>Возраст</p>
           <input
-            id='edit-age'
-            defaultValue={props.editUser.age}
+            id='age'
             onChange={validation}
+            defaultValue={defaultUser.age}
           />
           {ageIsValid ? '' : <span>Введите корректное значение</span>}
         </div>
         <div className={classes.section}>
           <p>Пол</p>
-          <select id='edit-gender'>
-            <option>{props.editUser.gender}</option>
-            <option>{props.editUser.gender === 'муж' ? 'жен' : 'муж'}</option>
+          <select id='gender'>
+            <option>{defaultUser.gender}</option>
+            <option>{defaultUser.secondGender}</option>
           </select>
         </div>
-
         <div className={classes.section}>
           <p>Должность</p>
           <input
-            id='edit-position'
-            defaultValue={props.editUser.position}
+            id='position'
             onChange={validation}
+            defaultValue={defaultUser.position}
           />
           {positionIsValid ? '' : <span>Введите корректное значение</span>}
         </div>
@@ -120,11 +125,11 @@ function EditForm(props) {
           type='button'
           disabled={!formIsValid}
           onClick={() => {
-            props.onSave(getUser());
+            props.onClick(getUser());
             props.onClose();
           }}
         >
-          Сохранить
+          Создать
         </button>
         <button
           className={classes.cancelButton}
@@ -138,4 +143,4 @@ function EditForm(props) {
   );
 }
 
-export default EditForm;
+export default Form;

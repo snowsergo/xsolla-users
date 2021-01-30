@@ -1,4 +1,4 @@
-.AddForm {
+.Form {
   position: fixed;
   align-self: center;
   margin: auto;
@@ -11,25 +11,25 @@
   z-index: 90;
 }
 
-.AddForm p {
+.Form p {
   margin:0;
   font-weight: bold;
 
 }
 
-.AddForm form {
+.Form form {
   display: flex;
   flex-direction: column;
 }
 
-.AddForm input {
+.Form input {
   margin-bottom: 1px;
 }
 
 
 
 
-.AddForm span {
+.Form span {
   position: absolute;
   bottom: -14px;
   right: 0;
