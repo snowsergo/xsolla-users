@@ -107,7 +107,7 @@ function Form(props) {
   }
 
   return (
-    <div className={classes.Form}>
+    <div className={classes.Form} data-id='form'>
       <form id='form'>
         <h1>{props.title}</h1>
         {formControls.map((control, index) => {
@@ -143,7 +143,7 @@ function Form(props) {
         >
           Сохранить
         </Button>
-        <Button type='cancel' onClick={() => props.onClose()}>
+        <Button data-id="cancel" type='cancel' onClick={() => props.onClose()}>
           Отмена
         </Button>
       </form>

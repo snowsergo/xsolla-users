@@ -3,7 +3,7 @@ import UserLine from './UserLine/UserLine';
 import UsersHead from './UsersHead/UsersHead';
 import PositionList from '../PositionList/PositionList';
 import Backdrop from '../UI/Backdrop/Backdrop';
-import Button from '../UI/Button/Button'
+import Button from '../UI/Button/Button';
 import classes from './Users.module.css';
 import users from '../../constants/defaultUsers';
 import Form from '../Form/Form';
@@ -174,9 +174,15 @@ export default class Users extends Component {
         ) : null}
 
         <h1 className={classes.title}>Список всех пользователей</h1>
-    
 
-        <Button type="addUser" onClick={() => this.handleAddForm()}>Добавть пользователя</Button>
+        <Button
+          data-id='add-user'
+          type='addUser'
+          onClick={() => this.handleAddForm()}
+        >
+          Добавть пользователя
+        </Button>
+
         <UsersHead onSort={this.sort} onFilter={() => this.toggleFilter()} />
 
         {this.filterHandler(this.state.users, this.state.filterArr).map(

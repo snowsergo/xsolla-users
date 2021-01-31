@@ -1,31 +1,9 @@
 import React from 'react';
 import classes from './UsersHead.module.css';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const UsersHead = (props) => {
   return (
-    // <tr className={classes.UsersHead}>
-    //   <th>
-    //     Имя <button onClick={()=>props.onSort('name','up')}>1</button>
-    //     <button onClick={()=>props.onSort('name','down')}>2</button>
-    //   </th>
-    //   <th>
-    //     Возраст <button onClick={()=>props.onSort('age','up')}>1</button>
-    //     <button onClick={()=>props.onSort('age','down')}>2</button>
-    //   </th>
-    //   <th>
-
-    //      Пол <button onClick={()=>props.onSort('gender','up')}>1</button>
-    //     <button onClick={()=>props.onSort('gender','down')}>2</button>
-    //   </th>
-    //   <th>
-    //     Должность
-    //     <button onClick={()=>props.onSort('position','up')}>1</button>
-    //     <button onClick={()=>props.onSort('position','down')}>2</button>
-    //     <button onClick={props.onFilter}>фильтр</button>
-    //   </th>
-    //   </tr>
-
+  
     <div className={classes.UsersHead}>
       <div className={classes.icons}>
         <p>Имя</p>
@@ -81,9 +59,8 @@ const UsersHead = (props) => {
             onClick={() => props.onSort('position', 'down')}
           />
         </div>
-        {/* <button onClick={()=>props.onSort('position','down')}>2</button> */}
         <div className={classes.sort}>
-        <i className={'fa fa-filter'} onClick={props.onFilter} />
+        <i data-id="filter-icon" className={'fa fa-filter'} onClick={props.onFilter} />
         </div>
         
       </div>

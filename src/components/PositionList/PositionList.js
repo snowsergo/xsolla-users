@@ -16,7 +16,7 @@ const PositionList = (props) => {
   }
 
   return (
-    <form id='filter-form' className={classes.PositionList}>
+    <form id='filter-form' className={classes.PositionList} data-id="filter-list">
       {props.positions.map((position) => {
         return (
           <label key={position}>
@@ -26,6 +26,7 @@ const PositionList = (props) => {
         );
       })}
       <Button
+        data-id="apply-filter"
         type='filter'
         onClick={() => {
           props.onFilter(filter());
