@@ -1,0 +1,48 @@
+.Button {
+  margin-top: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 30px;
+  width: 200px;
+  align-self: center;
+}
+
+.success {
+  background: rgba(0, 179, 15, 0.726);
+}
+.success:active {
+    background: rgba(0, 119, 10, 0.726);
+  }
+
+.success:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.cancel {
+  background: rgba(255, 0, 0, 0.747);
+}
+
+.cancel:active {
+    background: rgba(150, 1, 1, 0.747);
+  }
+
+.filter{
+        background: rgba(255, 136, 0, 0.815);
+        margin-top:10px;
+        width:100px;
+        font-weight: bold;
+}
+
+.filter:active{
+    background: rgba(167, 89, 0, 0.815);
+}
+
+.addUser{
+    background: rgba(255, 136, 0, 0.815);
+}
+
+.addUser:active{
+    background: rgba(255, 136, 0, 0.815);
+}

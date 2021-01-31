@@ -1,15 +1,31 @@
 import React, { useState } from 'react';
-
+import Input from '../UI/Input/Input';
+import Button from '../UI/Button/Button';
 import classes from './Form.module.css';
 
 function Form(props) {
-  
   const [nameIsValid, setValidName] = useState(true);
   const [ageIsValid, setValidAge] = useState(true);
   const [positionIsValid, setValidPosition] = useState(true);
   const [formIsValid, setValidForm] = useState(false);
 
- 
+  const formControls = [
+    {
+      id: 'name',
+      label: 'Имя',
+      isValid: nameIsValid,
+    },
+    {
+      id: 'age',
+      label: 'Возраст',
+      isValid: ageIsValid,
+    },
+    {
+      id: 'position',
+      label: 'Должность',
+      isValid: positionIsValid,
+    },
+  ];
 
   const defaultUser = {
     name: props.editUser ? props.editUser.name : '',
@@ -73,7 +89,6 @@ function Form(props) {
     }
     checkForm();
   }
-
   function getUser() {
     const nameInput = document.getElementById('name');
     const ageInput = document.getElementById('age');
@@ -95,59 +110,42 @@ function Form(props) {
     <div className={classes.Form}>
       <form id='form'>
         <h1>{props.title}</h1>
-        <div className={classes.section}>
-          <p>Имя</p>
-          <input
-            id='name'
-            onChange={validation}
-            defaultValue={defaultUser.name}
-          />
-          {nameIsValid ? '' : <span>Введите корректное значение</span>}
-        </div>
-        <div className={classes.section}>
-          <p>Возраст</p>
-          <input
-            id='age'
-            onChange={validation}
-            defaultValue={defaultUser.age}
-          />
-          {ageIsValid ? '' : <span>Введите корректное значение</span>}
-        </div>
-        <div className={classes.section}>
-          <p>Пол</p>
-          <select id='gender'>
-            <option>{defaultUser.gender}</option>
-            <option>{defaultUser.secondGender}</option>
-          </select>
-        </div>
-        <div className={classes.section}>
-          <p>Должность</p>
-          <input
-            id='position'
-            onChange={validation}
-            defaultValue={defaultUser.position}
-          />
-          {positionIsValid ? '' : <span>Введите корректное значение</span>}
-        </div>
+        {formControls.map((control, index) => {
+          return (
+            <div key={index}>
+              <Input
+                label={control.label}
+                id={control.id}
+                validation={validation}
+                isValid={control.isValid}
+                defaultValue={defaultUser[control.id]}
+              />
+              {index === 1 ? (
+                <div key='select' className={classes.section}>
+                  <p>Пол</p>
+                  <select id='gender'>
+                    <option>{defaultUser.gender}</option>
+                    <option>{defaultUser.secondGender}</option>
+                  </select>
+                </div>
+              ) : null}
+            </div>
+          );
+        })}
 
-        <button
-          className={classes.createButton}
-          type='button'
+        <Button
+          type='success'
           disabled={!formIsValid}
           onClick={() => {
             props.onClick(getUser());
             props.onClose();
           }}
         >
-          Создать
-        </button>
-        <button
-          className={classes.cancelButton}
-          type='button'
-          onClick={() => props.onClose()}
-        >
-          Отменить
-        </button>
+          Сохранить
+        </Button>
+        <Button type='cancel' onClick={() => props.onClose()}>
+          Отмена
+        </Button>
       </form>
     </div>
   );

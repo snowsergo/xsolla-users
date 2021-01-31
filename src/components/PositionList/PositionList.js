@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './PositionList.module.css';
+import Button from '../UI/Button/Button'
 
 const PositionList = (props) => {
   function filter() {
@@ -24,14 +25,14 @@ const PositionList = (props) => {
           </label>
         );
       })}
-      <button
-        type='button'
+      <Button
+        type='filter'
         onClick={() => {
           props.onFilter(filter());
         }}
       >
         Применить
-      </button>
+      </Button>
     </form>
   );
 };

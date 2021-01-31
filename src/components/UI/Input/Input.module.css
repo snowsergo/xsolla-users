@@ -1,6 +1,15 @@
-.section {
-    margin-top: 10px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
+.Input {
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.Input span {
+  position: absolute;
+  bottom: -14px;
+  right: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: red;
+}

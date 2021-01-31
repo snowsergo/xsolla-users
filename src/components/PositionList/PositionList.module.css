@@ -13,17 +13,6 @@
     padding:10px;
 }
 
-
-.PositionList button{
-margin-top:5px;
-align-self: center;
-width:100px;
-background: linear-gradient(#af38ff, #1500ff);
-color:#fff;
-cursor: pointer;
-font-weight: bold;
-}
-
 .PositionList label{
     cursor: pointer;
 

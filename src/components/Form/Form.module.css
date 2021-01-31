@@ -25,47 +25,9 @@
   margin-bottom: 1px;
 }
 
-.Form span {
-  position: absolute;
-  bottom: -14px;
-  right: 0;
-  font-size: 12px;
-  font-weight: bold;
-  color: red;
-}
-
 .section {
   margin-top: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
-}
-
-.createButton {
-  margin-top: 20px;
-  background: rgba(0, 179, 15, 0.726);
-  cursor: pointer;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 200px;
-  margin: auto;
-  height: 30px;
-  margin-top: 20px;
-}
-
-.createButton:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-.cancelButton {
-  margin-top: 20px;
-  background: rgba(255, 0, 0, 0.747);
-  cursor: pointer;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 200px;
-  height: 30px;
-  margin: auto;
-  margin-top: 20px;
 }
