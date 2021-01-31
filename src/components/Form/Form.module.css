@@ -4,7 +4,7 @@
   margin: auto;
   top: 60px;
   max-width: 500px;
-  padding: 10px;
+  padding: 20px;
   background: #fff;
   border: 1px solid black;
   border-radius: 5px;
@@ -12,9 +12,8 @@
 }
 
 .Form p {
-  margin:0;
+  margin: 0;
   font-weight: bold;
-
 }
 
 .Form form {
@@ -25,9 +24,6 @@
 .Form input {
   margin-bottom: 1px;
 }
-
-
-
 
 .Form span {
   position: absolute;
@@ -45,8 +41,7 @@
   flex-direction: column;
 }
 
-
-.createButton{
+.createButton {
   margin-top: 20px;
   background: rgba(0, 179, 15, 0.726);
   cursor: pointer;
@@ -54,24 +49,23 @@
   border-radius: 5px;
   width: 200px;
   margin: auto;
-  height:30px;
+  height: 30px;
   margin-top: 20px;
 }
 
-.createButton:disabled{
-  
+.createButton:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
 
-.cancelButton{
+.cancelButton {
   margin-top: 20px;
   background: rgba(255, 0, 0, 0.747);
   cursor: pointer;
   border: 1px solid black;
   border-radius: 5px;
   width: 200px;
-  height:30px;
+  height: 30px;
   margin: auto;
-  margin-top:20px;
+  margin-top: 20px;
 }

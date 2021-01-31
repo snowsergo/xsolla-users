@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
+
 import classes from './Form.module.css';
 
 function Form(props) {
+  
   const [nameIsValid, setValidName] = useState(true);
   const [ageIsValid, setValidAge] = useState(true);
   const [positionIsValid, setValidPosition] = useState(true);
   const [formIsValid, setValidForm] = useState(false);
 
+ 
+
   const defaultUser = {
     name: props.editUser ? props.editUser.name : '',
     age: props.editUser ? props.editUser.age : '',
     gender: props.editUser ? props.editUser.gender : 'муж',
-    secondGender: props.editUser? (props.editUser.gender==='муж'? 'жен': 'муж') : 'жен',
+    secondGender: props.editUser
+      ? props.editUser.gender === 'муж'
+        ? 'жен'
+        : 'муж'
+      : 'жен',
     position: props.editUser ? props.editUser.position : '',
   };
 
@@ -71,11 +79,13 @@ function Form(props) {
     const ageInput = document.getElementById('age');
     const genderInput = document.getElementById('gender');
     const positionInput = document.getElementById('position');
+
     const user = {
       name: nameInput.value,
       age: ageInput.value,
       gender: genderInput.value,
       position: positionInput.value,
+      id: props.editUser ? props.editUser.id : '',
     };
 
     return user;
